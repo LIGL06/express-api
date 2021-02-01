@@ -5,11 +5,13 @@ const env = require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const jwt = require('express-jwt');
+const cors = require('cors');
 // routers
 const usersRouter = require('./routes/users');
 
 const app = express();
 // middleware
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
